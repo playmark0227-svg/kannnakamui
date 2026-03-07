@@ -627,21 +627,20 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* PC: 上段2枚（50%ずつ）＋下段3枚（33%ずつ）の2+3対称レイアウト */
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.5rem;
   margin-top: 3rem;
 }
 
-/* 5サービス対応：4・5枚目を2カラムで中央寄せ */
-.services-grid .service-card--bottom {
-  /* 2枚を3カラムの中に均等配置 */
-}
-.services-grid .service-card--bottom:first-of-type {
-  grid-column: 1 / 2;
-}
-.services-grid .service-card--bottom:last-of-type {
-  grid-column: 2 / 3;
-}
+/* 上段：1枚目・2枚目 → 各3列分（50%） */
+.services-grid .service-card:nth-child(1) { grid-column: 1 / 4; }
+.services-grid .service-card:nth-child(2) { grid-column: 4 / 7; }
+
+/* 下段：3・4・5枚目 → 各2列分（33%）*/
+.services-grid .service-card:nth-child(3) { grid-column: 1 / 3; }
+.services-grid .service-card:nth-child(4) { grid-column: 3 / 5; }
+.services-grid .service-card:nth-child(5) { grid-column: 5 / 7; }
 
 .service-card {
   background: rgba(255,255,255,0.04);
@@ -1525,6 +1524,18 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .map-embed-wrap { height: 260px; min-height: 260px; }
   .services-grid,
   .features-grid { grid-template-columns: 1fr 1fr; }
+  /* タブレット：services-gridを2列リセット */
+  .services-grid .service-card:nth-child(1),
+  .services-grid .service-card:nth-child(2),
+  .services-grid .service-card:nth-child(3),
+  .services-grid .service-card:nth-child(4),
+  .services-grid .service-card:nth-child(5) { grid-column: auto; }
+  /* 5枚目を中央寄せ */
+  .services-grid .service-card:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 0.75rem);
+    margin: 0 auto;
+  }
   .blog-section-grid { grid-template-columns: 1fr 1fr; }
   .ec-banner { flex-direction: column; align-items: flex-start; padding: 2rem; }
   .ec-banner-right { align-items: flex-start; }
@@ -1600,7 +1611,19 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .btn { width: 100%; max-width: 280px; justify-content: center; }
 
   /* Services */
-  .services-grid { grid-template-columns: 1fr; }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  /* スマホ：nth-childのgrid-column指定をすべてリセット（1列縦並び） */
+  .services-grid .service-card:nth-child(1),
+  .services-grid .service-card:nth-child(2),
+  .services-grid .service-card:nth-child(3),
+  .services-grid .service-card:nth-child(4),
+  .services-grid .service-card:nth-child(5) {
+    grid-column: auto;
+    max-width: none;
+    margin: 0;
+  }
   .blog-section-grid { grid-template-columns: 1fr; }
   .ec-banner { padding: 1.5rem; }
   .ec-banner-title { font-size: 1.3rem; }
