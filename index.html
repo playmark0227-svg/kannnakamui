@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KANNA KAMUY | 人生に寄り添う支援</title>
+  <meta name="description" content="KANNA KAMUYは、一人ひとりの想いを次の世代へ託すための支援を行っています。いまをまもり、これまでの歩みをのこし、未来に想いをつなぐ。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-en">KANNA KAMUY</span>
+        <span class="logo-ja">人生に寄り添う支援</span>
+      </a>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="#about">私たちについて</a></li>
+          <li><a href="#services">サービス</a></li>
+          <li><a href="#flow">ご相談の流れ</a></li>
+          <li><a href="#company">会社概要</a></li>
+          <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <!-- PC用横動画 -->
+    <video
+      class="hero-video hero-video--horizontal"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src="assets/videos/hero-horizontal.mp4" type="video/mp4" />
+    </video>
+    <!-- スマホ用縦動画 -->
+    <video
+      class="hero-video hero-video--vertical"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src="assets/videos/hero-vertical.mp4" type="video/mp4" />
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal-up">人生に寄り添う支援</p>
+      <h1 class="hero-title reveal-up delay-1">
+        <span class="hero-title-en">KANNA KAMUY</span>
+        <span class="hero-title-line"></span>
+        <span class="hero-title-sub">あなたの想いを、<br>次の世代へ。</span>
+      </h1>
+      <p class="hero-desc reveal-up delay-2">
+        いまをまもり、これまでの歩みをのこし、未来に想いをつなぐ。<br>
+        私たちは、一人ひとりの大切なものを守るための支援をしています。
+      </p>
+      <div class="hero-actions reveal-up delay-3">
+        <a href="#contact" class="btn btn-primary">無料相談を予約する</a>
+        <a href="#services" class="btn btn-ghost">サービスを見る</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== CONCEPT ========== -->
+  <section class="concept" id="about">
+    <div class="container">
+      <div class="concept-inner">
+        <div class="concept-text">
+          <p class="section-label reveal-up">Our Concept</p>
+          <h2 class="section-title reveal-up delay-1">
+            一人ひとりの想いを、<br>
+            次の世代へ託す。
+          </h2>
+          <div class="concept-body reveal-up delay-2">
+            <p>
+              「カンナカムイ」とは、アイヌ語で「雷神」を意味します。<br>
+              大地に降り注ぐ雷のように、力強く、しかし温かく——<br>
+              人生の大切な節目に寄り添い、確かな支えとなることを使命としています。
+            </p>
+            <p>
+              北海道札幌市を拠点に、終活・相続・遺言にまつわるさまざまなご相談に対応しています。<br>
+              特定行政書士をはじめとする専門資格保持者が、丁寧にサポートします。
+            </p>
+          </div>
+          <a href="#services" class="link-arrow reveal-up delay-3">
+            サービス詳細を見る
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="concept-visual reveal-right delay-1">
+          <div class="concept-card">
+            <div class="concept-card-item">
+              <div class="concept-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <circle cx="24" cy="24" r="20"/>
+                  <path d="M24 14v10l6 4"/>
+                </svg>
+              </div>
+              <div>
+                <h3>いまをまもる</h3>
+                <p>現在の財産・権利を守るための手続きを支援</p>
+              </div>
+            </div>
+            <div class="concept-card-item">
+              <div class="concept-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="8" y="12" width="32" height="28" rx="2"/>
+                  <path d="M16 12V8a2 2 0 014 0v4M28 12V8a2 2 0 014 0v4"/>
+                  <path d="M8 22h32"/>
+                </svg>
+              </div>
+              <div>
+                <h3>これまでをのこす</h3>
+                <p>歩んできた人生・想いを記録し次代へ伝える</p>
+              </div>
+            </div>
+            <div class="concept-card-item">
+              <div class="concept-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M24 8c8.837 0 16 7.163 16 16S32.837 40 24 40 8 32.837 8 24 15.163 8 24 8z"/>
+                  <path d="M24 8v8M24 32v8M8 24h8M32 24h8" stroke-linecap="round"/>
+                  <circle cx="24" cy="24" r="4" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>
+                <h3>未来へつなぐ</h3>
+                <p>大切な人への想いを遺言・相続に込める</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="services" id="services">
+    <div class="services-bg-text" aria-hidden="true">SERVICES</div>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal-up">Services</p>
+        <h2 class="section-title reveal-up delay-1">私たちが提供する<br>3つの支援</h2>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card reveal-up delay-1">
+          <div class="service-number">01</div>
+          <div class="service-icon-wrap">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M32 8C18.745 8 8 18.745 8 32s10.745 24 24 24 24-10.745 24-24S45.255 8 32 8z"/>
+              <path d="M32 20v14l8 4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20 10l-4-4M44 10l4-4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title">終活サポート</h3>
+          <p class="service-desc">
+            人生の終わりに向けた準備を、一緒に考えます。エンディングノートの作成から、各種手続きの整理まで、ご本人のペースで丁寧にサポートします。
+          </p>
+          <ul class="service-list">
+            <li>エンディングノート作成支援</li>
+            <li>財産・権利の整理・棚卸し</li>
+            <li>各種手続きの代行・補助</li>
+          </ul>
+          <a href="#contact" class="service-link">
+            詳しく相談する
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card service-card--featured reveal-up delay-2">
+          <div class="service-badge">Most Popular</div>
+          <div class="service-number">02</div>
+          <div class="service-icon-wrap">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="10" y="14" width="44" height="38" rx="3"/>
+              <path d="M10 24h44M22 14V10M42 14V10" stroke-linecap="round"/>
+              <path d="M18 34h12M18 42h20" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title">遺言書作成</h3>
+          <p class="service-desc">
+            大切な方への想いを、法的に有効な形で残します。特定行政書士が、公正証書遺言・自筆証書遺言の作成をしっかりサポートします。
+          </p>
+          <ul class="service-list">
+            <li>遺言書の種類・内容のご提案</li>
+            <li>公正証書遺言の手続き支援</li>
+            <li>自筆証書遺言の記載チェック</li>
+          </ul>
+          <a href="#contact" class="service-link">
+            詳しく相談する
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card reveal-up delay-3">
+          <div class="service-number">03</div>
+          <div class="service-icon-wrap">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M32 10l4 8 9 1.3-6.5 6.3 1.5 9L32 30l-8 4.6 1.5-9L19 19.3l9-1.3z"/>
+              <path d="M16 44c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title">相続手続き支援</h3>
+          <p class="service-desc">
+            相続は複雑な手続きが多く、精神的にも大変な時期です。煩雑な書類作成・申請手続きをワンストップでサポートします。
+          </p>
+          <ul class="service-list">
+            <li>相続関係説明図の作成</li>
+            <li>遺産分割協議書の作成</li>
+            <li>各種相続手続きの代行</li>
+          </ul>
+          <a href="#contact" class="service-link">
+            詳しく相談する
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal-up">Why KANNA KAMUY</p>
+        <h2 class="section-title reveal-up delay-1">選ばれる3つの理由</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item reveal-up delay-1">
+          <div class="feature-num">01</div>
+          <h3>専門資格保持者が対応</h3>
+          <p>特定行政書士をはじめとする専門資格保持者が直接ご相談をお受けします。難しい手続きも安心してお任せください。</p>
+        </div>
+        <div class="feature-item reveal-up delay-2">
+          <div class="feature-num">02</div>
+          <h3>丁寧なヒアリング</h3>
+          <p>お客様一人ひとりのご状況・ご要望を丁寧にお聞きし、最適なプランをご提案します。焦らず、一緒に考えます。</p>
+        </div>
+        <div class="feature-item reveal-up delay-3">
+          <div class="feature-num">03</div>
+          <h3>北海道全域に対応</h3>
+          <p>札幌市を拠点に、北海道全域でご相談に対応しています。出張相談・オンライン相談もお気軽にご利用ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FLOW ========== -->
+  <section class="flow" id="flow">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal-up">Flow</p>
+        <h2 class="section-title reveal-up delay-1">ご相談の流れ</h2>
+        <p class="section-sub reveal-up delay-2">はじめての方も安心。<br>シンプルな4ステップでサポートします。</p>
+      </div>
+      <div class="flow-steps">
+        <div class="flow-step reveal-up delay-1">
+          <div class="flow-step-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
+              <rect x="8" y="10" width="32" height="30" rx="3"/>
+              <path d="M16 10V6M32 10V6" stroke-linecap="round"/>
+              <path d="M8 20h32M16 30h8M16 36h16" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="flow-step-num">Step 01</div>
+          <h3>お問い合わせ</h3>
+          <p>フォーム・お電話・LINEなど、お好きな方法でお気軽にご連絡ください。</p>
+        </div>
+        <div class="flow-connector" aria-hidden="true"></div>
+        <div class="flow-step reveal-up delay-2">
+          <div class="flow-step-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
+              <circle cx="24" cy="18" r="8"/>
+              <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="flow-step-num">Step 02</div>
+          <h3>無料相談</h3>
+          <p>ご状況・ご要望を丁寧にヒアリングします。対面・オンラインいずれも対応可能です。</p>
+        </div>
+        <div class="flow-connector" aria-hidden="true"></div>
+        <div class="flow-step reveal-up delay-3">
+          <div class="flow-step-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
+              <path d="M24 8L10 22h6v18h16V22h6z"/>
+            </svg>
+          </div>
+          <div class="flow-step-num">Step 03</div>
+          <h3>プランご提案</h3>
+          <p>ヒアリング内容をもとに、最適なサービスプランと費用をご提案します。</p>
+        </div>
+        <div class="flow-connector" aria-hidden="true"></div>
+        <div class="flow-step reveal-up delay-4">
+          <div class="flow-step-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
+              <path d="M12 26l8 8 16-18" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="24" cy="24" r="18"/>
+            </svg>
+          </div>
+          <div class="flow-step-num">Step 04</div>
+          <h3>手続き完了</h3>
+          <p>ご契約後、責任を持って手続きを進めます。完了まで丁寧にサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPANY ========== -->
+  <section class="company" id="company">
+    <div class="container">
+      <div class="company-inner">
+        <div class="company-text">
+          <p class="section-label reveal-up">Company</p>
+          <h2 class="section-title reveal-up delay-1">会社概要</h2>
+          <table class="company-table reveal-up delay-2">
+            <tr>
+              <th>会社名</th>
+              <td>合同会社 KANNA KAMUY</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>〒004-0076<br>北海道札幌市厚別区厚別北6条4丁目5番3</td>
+            </tr>
+            <tr>
+              <th>代表者</th>
+              <td>中尾 生馬</td>
+            </tr>
+            <tr>
+              <th>設立</th>
+              <td>2025年10月</td>
+            </tr>
+            <tr>
+              <th>資格</th>
+              <td>特定行政書士 在籍</td>
+            </tr>
+            <tr>
+              <th>対応エリア</th>
+              <td>北海道全域（出張・オンライン相談対応）</td>
+            </tr>
+            <tr>
+              <th>事業内容</th>
+              <td>終活サポート・遺言書作成・相続手続き支援</td>
+            </tr>
+          </table>
+        </div>
+        <div class="company-map reveal-right delay-2">
+          <div class="map-placeholder">
+            <div class="map-pin-wrap">
+              <svg class="map-pin" viewBox="0 0 48 64" fill="none">
+                <path d="M24 2C13.507 2 5 10.507 5 21c0 14.25 19 41 19 41S43 35.25 43 21C43 10.507 34.493 2 24 2z" fill="#B8966E" stroke="#fff" stroke-width="2"/>
+                <circle cx="24" cy="21" r="7" fill="#fff"/>
+              </svg>
+            </div>
+            <p class="map-label">北海道札幌市厚別区</p>
+            <a href="https://maps.google.com/?q=北海道札幌市厚別区厚別北6条4丁目5番3" target="_blank" rel="noopener" class="map-link">
+              Google マップで見る
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contact">
+    <div class="contact-bg-video">
+      <video class="contact-video contact-video--horizontal" autoplay muted loop playsinline>
+        <source src="assets/videos/hero-horizontal.mp4" type="video/mp4" />
+      </video>
+      <video class="contact-video contact-video--vertical" autoplay muted loop playsinline>
+        <source src="assets/videos/hero-vertical.mp4" type="video/mp4" />
+      </video>
+      <div class="contact-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-heading reveal-up">
+          <p class="section-label section-label--light">Contact</p>
+          <h2 class="section-title section-title--light">まずは、<br>お気軽にご相談ください。</h2>
+          <p class="contact-sub">初回相談は無料です。どんな小さなことでも、<br>ぜひお気軽にお声がけください。</p>
+        </div>
+        <form class="contact-form reveal-up delay-2" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">お名前 <span class="required">必須</span></label>
+              <input type="text" id="name" name="name" placeholder="山田 太郎" required />
+            </div>
+            <div class="form-group">
+              <label for="kana">フリガナ</label>
+              <input type="text" id="kana" name="kana" placeholder="ヤマダ タロウ" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="email" name="email" placeholder="example@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="tel">電話番号</label>
+              <input type="tel" id="tel" name="tel" placeholder="090-0000-0000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">ご相談内容</label>
+            <select id="service" name="service">
+              <option value="">選択してください</option>
+              <option value="shukatsu">終活サポート</option>
+              <option value="yuigon">遺言書作成</option>
+              <option value="sozoku">相続手続き支援</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">メッセージ <span class="required">必須</span></label>
+            <textarea id="message" name="message" rows="5" placeholder="ご相談の内容をお気軽にお書きください。" required></textarea>
+          </div>
+          <div class="form-privacy">
+            <label class="checkbox-label">
+              <input type="checkbox" id="privacy" name="privacy" required />
+              <span class="checkmark"></span>
+              <a href="#" target="_blank">プライバシーポリシー</a>に同意する
+            </label>
+          </div>
+          <button type="submit" class="btn btn-submit">
+            <span class="btn-text">送信する</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+          <div class="form-success" id="form-success" aria-live="polite">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="20"/><path d="M14 24l8 8 12-14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p>送信しました。<br>2営業日以内にご連絡いたします。</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo-en">KANNA KAMUY</p>
+          <p class="footer-logo-ja">人生に寄り添う支援</p>
+          <p class="footer-tagline">いまをまもり、これまでの歩みをのこし、<br>未来に想いをつなぐ。</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#about">私たちについて</a></li>
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#flow">ご相談の流れ</a></li>
+            <li><a href="#company">会社概要</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">終活サポート</a></li>
+            <li><a href="#services">遺言書作成</a></li>
+            <li><a href="#services">相続手続き支援</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>〒004-0076<br>北海道札幌市厚別区<br>厚別北6条4丁目5番3</p>
+          <a href="#contact" class="footer-cta">無料相談を予約する</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 KANNA KAMUY. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">プライバシーポリシー</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- トップへ戻るボタン -->
+  <button class="back-to-top" id="back-to-top" aria-label="トップへ戻る">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="main.js"></script>
+</body>
+</html>
