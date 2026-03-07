@@ -84,10 +84,10 @@ input, textarea, select { font-family: inherit; }
 .login-wrap {
   width: 100%;
   max-width: 420px;
-  padding: 2.5rem;
+  padding: 2.75rem;
   background: var(--white);
-  border-radius: 16px;
-  box-shadow: var(--shadow-lg), 0 0 0 1px var(--heki-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--heki-border), 0 40px 80px rgba(46,125,119,0.08);
 }
 
 .login-logo {
@@ -307,31 +307,150 @@ input, textarea, select { font-family: inherit; }
   flex-direction: column;
 }
 
+/* ── サイドバー背景オーバーレイ（スマホ用） ── */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
+  z-index: 90;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+
+.sidebar-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ── スマホ用ボトムナビ ── */
+.bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(15,14,12,0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    z-index: 80;
+    padding: 0 0.5rem;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .bottom-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    border-radius: 10px;
+    padding: 0.5rem 0.25rem;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .bottom-nav-btn svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    stroke-width: 1.5;
+  }
+
+  .bottom-nav-btn:hover,
+  .bottom-nav-btn.active {
+    color: var(--heki-light);
+    background: rgba(46,125,119,0.12);
+  }
+
+  .bottom-nav-btn.active svg {
+    stroke-width: 2;
+  }
+}
+
 /* ── トップバー ── */
 .topbar {
   position: sticky;
   top: 0;
   height: var(--header-h);
-  background: rgba(245,250,249,0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(245,250,249,0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
   z-index: 50;
+  gap: 1rem;
 }
 
 .topbar-title {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ハンバーガーボタン（スマホのみ表示） */
+.topbar-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.topbar-hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  transition: all 0.3s var(--ease);
+}
+
+.topbar-hamburger:hover { background: var(--heki-pale); }
+.topbar-hamburger:hover span { background: var(--heki); }
+
+/* ハンバーガー open 状態 */
+.topbar-hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.topbar-hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.topbar-hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .topbar-right {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .topbar-site-link {
@@ -343,16 +462,25 @@ input, textarea, select { font-family: inherit; }
   padding: 0.4rem 0.8rem;
   border: 1px solid var(--heki-border);
   border-radius: 20px;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
 }
 
-.topbar-site-link:hover { background: var(--heki-pale); }
+.topbar-site-link:hover {
+  background: var(--heki-pale);
+  box-shadow: 0 2px 8px var(--heki-muted);
+}
 
 .topbar-site-link svg { width: 12px; height: 12px; }
 
 /* ── パネル共通 ── */
-.panel { display: none; flex: 1; padding: 2rem; }
+.panel { display: none; flex: 1; padding: 2rem; animation: panel-in 0.25s var(--ease); }
 .panel.active { display: block; }
+
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 /* ══════════════════════════════════════════════════
    ブログ記事パネル — 一覧
@@ -361,19 +489,33 @@ input, textarea, select { font-family: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .panel-title {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text);
+  position: relative;
+  padding-left: 0.9rem;
+}
+
+.panel-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--heki-light), var(--heki-dark));
+  border-radius: 2px;
 }
 
 .panel-subtitle {
   font-size: 0.78rem;
   color: var(--text-muted);
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
+  padding-left: 0.9rem;
 }
 
 /* 新規投稿ボタン */
@@ -443,7 +585,12 @@ input, textarea, select { font-family: inherit; }
   border-radius: var(--radius);
   border: 1px solid var(--border);
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow), 0 1px 0 rgba(46,125,119,0.04);
+  transition: box-shadow 0.2s;
+}
+
+.table-wrap:hover {
+  box-shadow: var(--shadow-md), 0 1px 0 rgba(46,125,119,0.06);
 }
 
 .posts-table {
@@ -454,29 +601,33 @@ input, textarea, select { font-family: inherit; }
 
 .posts-table th {
   padding: 0.85rem 1rem;
-  background: var(--bg);
+  background: linear-gradient(to bottom, var(--bg), rgba(245,250,249,0.5));
   text-align: left;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
 }
 
 .posts-table td {
-  padding: 0.9rem 1rem;
-  border-bottom: 1px solid var(--border);
+  padding: 0.95rem 1rem;
+  border-bottom: 1px solid rgba(60,55,50,0.07);
   vertical-align: middle;
   color: var(--text);
+  transition: background 0.15s;
 }
 
 .posts-table tr:last-child td { border-bottom: none; }
 
-.posts-table tr:hover td { background: rgba(46,125,119,0.03); }
+.posts-table tr:hover td {
+  background: rgba(46,125,119,0.04);
+}
 
 .post-title-cell {
-  max-width: 280px;
+  max-width: 260px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -650,20 +801,37 @@ input, textarea, select { font-family: inherit; }
   border-radius: var(--radius);
   border: 1px solid var(--border);
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow), 0 1px 0 rgba(46,125,119,0.03);
+  transition: box-shadow 0.2s;
+}
+
+.form-card:focus-within {
+  box-shadow: var(--shadow-md), 0 0 0 2px var(--heki-muted);
 }
 
 .form-card-header {
-  padding: 1rem 1.25rem;
-  background: var(--bg);
+  padding: 0.9rem 1.25rem;
+  background: linear-gradient(to right, var(--bg), rgba(245,250,249,0.5));
   border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-card-header::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 1em;
+  background: var(--heki);
+  border-radius: 2px;
 }
 
 .form-card-title {
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-size: 0.76rem;
+  font-weight: 600;
   color: var(--text-muted);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -1158,31 +1326,112 @@ input, textarea, select { font-family: inherit; }
   .edit-layout { grid-template-columns: 1fr 260px; }
 }
 
+/* ══════════════════════════════════════════════════
+   スマホ対応 (768px以下)
+══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
+
+  /* サイドバー: 左からスライド */
   .sidebar {
     transform: translateX(-100%);
-    width: 260px;
+    width: min(280px, 80vw);
+    z-index: 100;
+    box-shadow: none;
   }
 
   .sidebar.open {
     transform: translateX(0);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 4px 0 30px rgba(0,0,0,0.3);
   }
 
-  .main-content { margin-left: 0; }
+  /* メインコンテンツ: サイドバー分の余白なし */
+  .main-content {
+    margin-left: 0;
+    padding-bottom: 64px; /* ボトムナビ分 */
+  }
 
-  .panel { padding: 1.25rem; }
+  /* ハンバーガーボタン表示 */
+  .topbar-hamburger { display: flex; }
 
-  .edit-layout { grid-template-columns: 1fr; }
+  /* トップバーの外部リンクはスマホで1つに絞る */
+  .topbar-site-link:not(:first-child) { display: none; }
 
-  .panel-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  /* パネル余白縮小 */
+  .panel { padding: 1rem; }
 
-  .btn-new-post { align-self: flex-end; }
+  /* パネルヘッダー縦並び */
+  .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
 
+  .btn-new-post { align-self: stretch; justify-content: center; }
+
+  /* フィルターバー */
+  .filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .filter-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+
+  .posts-count { font-size: 0.72rem; }
+
+  /* テーブル: カテゴリ列を非表示 */
   .posts-table th:nth-child(2),
   .posts-table td:nth-child(2) { display: none; }
 
-  .topbar { padding: 0 1.25rem; }
+  /* 編集フォーム: 1カラム */
+  .edit-layout { grid-template-columns: 1fr; }
+
+  /* 編集ヘッダー */
+  .edit-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .edit-view-title { font-size: 1rem; }
+
+  /* フォームカード余白縮小 */
+  .form-card-body { padding: 1rem; }
+
+  /* 保存ボタン横並び */
+  .form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn-publish, .btn-save-draft { width: 100%; }
+
+  /* テーブルの操作ボタン: スマホではアイコンのみ */
+  .btn-edit span, .btn-preview span { display: none; }
+
+  .table-actions { gap: 0.4rem; }
+
+  .btn-edit,
+  .btn-preview {
+    padding: 0.4rem;
+    min-width: 32px;
+    justify-content: center;
+  }
+
+  .btn-edit span,
+  .btn-preview span { display: none; }
+
+  /* Quillエディタ高さ縮小 */
+  .quill-wrap .ql-editor { min-height: 260px; }
+
+  /* Coming Soonパネル */
+  .coming-soon-panel { min-height: 280px; gap: 1rem; }
+  .coming-soon-timeline { max-width: 100%; }
+
+  /* ログイン画面 */
+  .login-wrap { margin: 1rem; padding: 2rem 1.5rem; }
 }
 
 /* ══════════════════════════════════════════════════

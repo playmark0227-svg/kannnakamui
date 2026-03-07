@@ -98,6 +98,11 @@ function showPanel(id) {
   document.querySelector(`[data-panel="${id}"]`)?.classList.add('active');
   const titleEl = document.getElementById('topbar-title');
   if (titleEl) titleEl.textContent = PANEL_TITLES[id] || '';
+
+  // ボトムナビのアクティブ状態も同期
+  document.querySelectorAll('.bottom-nav-btn[data-panel]').forEach(b => {
+    b.classList.toggle('active', b.dataset.panel === id);
+  });
 }
 
 /* ══════════════════════════════════════════
@@ -417,3 +422,60 @@ function bindEvents() {
 
 /* ── Start ── */
 init();
+
+/* ══════════════════════════════════════════
+   スマホ用サイドバー開閉
+══════════════════════════════════════════ */
+(function setupMobileNav() {
+  const hamburger = document.getElementById('topbar-hamburger');
+  const overlay   = document.getElementById('sidebar-overlay');
+  const sidebar   = document.getElementById('sidebar');
+
+  if (!hamburger || !overlay || !sidebar) return;
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+    hamburger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => {
+    sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+  });
+
+  overlay.addEventListener('click', closeSidebar);
+
+  // サイドバー内のボタンをタップしたら自動で閉じる（スマホのみ）
+  sidebar.addEventListener('click', e => {
+    if (window.innerWidth <= 768 && e.target.closest('.sidebar-btn')) {
+      setTimeout(closeSidebar, 200);
+    }
+  });
+
+  /* ── ボトムナビ ── */
+  document.querySelectorAll('.bottom-nav-btn[data-panel]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showPanel(btn.dataset.panel);
+      // ボトムナビのアクティブ切替
+      document.querySelectorAll('.bottom-nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // ボトムナビのログアウト
+  const bottomLogout = document.getElementById('bottom-nav-logout');
+  if (bottomLogout) {
+    bottomLogout.addEventListener('click', () => {
+      _Auth.logout();
+      showView('view-login');
+    });
+  }
+})();

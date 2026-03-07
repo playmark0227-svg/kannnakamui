@@ -68,11 +68,18 @@
     </div>
   </aside>
 
+  <!-- サイドバー背景オーバーレイ（スマホ用） -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
   <!-- メインコンテンツ -->
   <div class="main-content">
 
     <!-- トップバー -->
     <div class="topbar">
+      <!-- ハンバーガーボタン（スマホのみ表示） -->
+      <button class="topbar-hamburger" id="topbar-hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
       <p class="topbar-title" id="topbar-title">実績・ブログ記事</p>
       <div class="topbar-right">
         <a href="../blog/index.html" target="_blank" class="topbar-site-link">
@@ -322,6 +329,26 @@
 
   </div><!-- /main-content -->
 </div><!-- /view-dashboard -->
+
+<!-- スマホ用ボトムナビ -->
+<nav class="bottom-nav" id="bottom-nav">
+  <button class="bottom-nav-btn active" data-panel="panel-posts">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h6M7 16h8"/></svg>
+    <span>記事</span>
+  </button>
+  <button class="bottom-nav-btn" data-panel="panel-products">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 20h4M6 20h2M16 20h2M3 10h18l-2 8H5L3 10z"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+    <span>出品</span>
+  </button>
+  <button class="bottom-nav-btn" data-panel="panel-orders">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+    <span>取引</span>
+  </button>
+  <button class="bottom-nav-btn" id="bottom-nav-logout">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    <span>ログアウト</span>
+  </button>
+</nav>
 
 <!-- 削除確認モーダル -->
 <div class="modal-overlay" id="modal-delete">
