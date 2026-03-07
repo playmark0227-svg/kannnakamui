@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>実績・ブログ — KANNA KAMUY</title>
+  <meta name="description" content="KANNA KAMUYの実績事例・お知らせ・コラムをご覧いただけます。相続・遺言・終活のサポート事例を紹介しています。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="blog.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-en">KANNA KAMUY</span>
+        <span class="logo-ja">人生に寄り添う支援</span>
+      </a>
+      <nav class="header-nav">
+        <a href="../index.html#about">私たちについて</a>
+        <a href="../index.html#message">代表挨拶</a>
+        <a href="../index.html#services">サービス</a>
+        <a href="../index.html#flow">ご相談の流れ</a>
+        <a href="index.html" class="current">実績・ブログ</a>
+        <a href="../ec/index.html">ショップ</a>
+        <a href="../index.html#company">会社概要</a>
+        <a href="../index.html#contact" class="nav-cta">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-label">Works &amp; Blog</p>
+      <h1 class="page-hero-title">実績・ブログ</h1>
+      <p class="page-hero-sub">私たちの取り組みや、お客様との歩みをご紹介します。</p>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="blog-main">
+    <div class="blog-container">
+
+      <!-- フィルター -->
+      <div class="blog-filter">
+        <button class="filter-pill active" data-cat="all">すべて</button>
+        <div id="cat-pills" style="display:contents"></div>
+      </div>
+
+      <!-- グリッド -->
+      <div class="blog-grid" id="blog-grid"></div>
+
+      <!-- 空状態 -->
+      <div class="blog-empty" id="blog-empty" style="display:none">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="8" y="8" width="48" height="48" rx="4"/><path d="M20 24h24M20 32h16M20 40h20" stroke-linecap="round"/></svg>
+        <p>まだ記事がありません。</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="blog-footer">
+    <div class="blog-container">
+      <div class="blog-footer-inner">
+        <div>
+          <p class="footer-logo-en">KANNA KAMUY</p>
+          <p class="footer-logo-ja">人生に寄り添う支援</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="../index.html">トップ</a>
+          <a href="../index.html#services">サービス</a>
+          <a href="index.html">実績・ブログ</a>
+          <a href="../index.html#contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2025 KANNA KAMUY. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/store.js"></script>
+  <script src="blog.js"></script>
+</body>
+</html>

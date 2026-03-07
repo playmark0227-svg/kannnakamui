@@ -25,6 +25,8 @@
           <li><a href="#message">代表挨拶</a></li>
           <li><a href="#services">サービス</a></li>
           <li><a href="#flow">ご相談の流れ</a></li>
+          <li><a href="blog/index.html">実績・ブログ</a></li>
+          <li><a href="ec/index.html">ショップ</a></li>
           <li><a href="#company">会社概要</a></li>
           <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
         </ul>
@@ -385,6 +387,52 @@
     </div>
   </section>
 
+  <!-- ========== BLOG ========== -->
+  <section class="blog-section" id="blog">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal-up">Works &amp; Blog</p>
+        <h2 class="section-title reveal-up delay-1">実績・ブログ</h2>
+        <p class="section-sub reveal-up delay-2">私たちの取り組みや、お客様との歩みをご紹介します。</p>
+      </div>
+
+      <div class="blog-section-grid" id="home-blog-grid">
+        <!-- JSで最新3件を挿入 -->
+        <div class="blog-section-loading">読み込み中...</div>
+      </div>
+
+      <div class="blog-section-more reveal-up delay-3">
+        <a href="blog/index.html" class="btn btn-ghost-dark">
+          すべての記事を見る
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EC BANNER ========== -->
+  <section class="ec-banner-section">
+    <div class="container">
+      <div class="ec-banner reveal-up">
+        <div class="ec-banner-left">
+          <p class="ec-banner-label">Online Shop</p>
+          <h2 class="ec-banner-title">オンラインショップ</h2>
+          <p class="ec-banner-desc">終活ガイドブックやワークショップ申込みなど、<br>さまざまなサービスを近日公開予定です。</p>
+        </div>
+        <div class="ec-banner-right">
+          <div class="ec-banner-badge">
+            <span class="ec-banner-dot"></span>
+            準備中
+          </div>
+          <a href="ec/index.html" class="ec-banner-btn">
+            ショップを見る
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== COMPANY ========== -->
   <section class="company" id="company">
     <div class="container">
@@ -424,17 +472,21 @@
           </table>
         </div>
         <div class="company-map reveal-right delay-2">
-          <div class="map-placeholder">
-            <div class="map-pin-wrap">
-              <svg class="map-pin" viewBox="0 0 48 64" fill="none">
-                <path d="M24 2C13.507 2 5 10.507 5 21c0 14.25 19 41 19 41S43 35.25 43 21C43 10.507 34.493 2 24 2z" fill="#B8966E" stroke="#fff" stroke-width="2"/>
-                <circle cx="24" cy="21" r="7" fill="#fff"/>
-              </svg>
-            </div>
-            <p class="map-label">北海道札幌市厚別区</p>
-            <a href="https://maps.google.com/?q=北海道札幌市厚別区厚別北6条4丁目5番3" target="_blank" rel="noopener" class="map-link">
-              Google マップで見る
+          <div class="map-embed-wrap">
+            <iframe
+              class="map-iframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2917.423!2d141.4271!3d43.0682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2976c0000001%3A0x0!2z5YyX5rW36YGT5pyt5bed5Yy65Y6a5Yy65YyX6KW_77yW5p2h77yU5LiB55uu77yV55Wq77yT!5e0!3m2!1sja!2sjp!4v1709999999999"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="KANNA KAMUY 所在地 — 北海道札幌市厚別区厚別北6条4丁目5番3"
+            ></iframe>
+            <a href="https://maps.google.com/?q=北海道札幌市厚別区厚別北6条4丁目5番3" target="_blank" rel="noopener" class="map-open-link">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              大きな地図で見る
             </a>
           </div>
         </div>
@@ -530,6 +582,8 @@
             <li><a href="#about">私たちについて</a></li>
             <li><a href="#message">代表挨拶</a></li>
             <li><a href="#services">サービス</a></li>
+            <li><a href="blog/index.html">実績・ブログ</a></li>
+            <li><a href="ec/index.html">ショップ</a></li>
             <li><a href="#flow">ご相談の流れ</a></li>
             <li><a href="#company">会社概要</a></li>
             <li><a href="#contact">お問い合わせ</a></li>
@@ -563,6 +617,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
+  <script src="assets/js/store.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

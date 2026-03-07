@@ -234,3 +234,59 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
+
+// ────────────────────────────────────────────
+// 9. ホームページ：最新ブログ3件を描画
+// ────────────────────────────────────────────
+(function initHomeBlog() {
+  const grid = document.getElementById('home-blog-grid');
+  if (!grid || !window.KK) return;
+
+  window.KK.Posts.seed();
+  const posts = window.KK.Posts.getPublished().slice(0, 3);
+
+  if (posts.length === 0) {
+    grid.innerHTML = '<p class="blog-section-empty">まだ記事がありません。</p>';
+    return;
+  }
+
+  function esc(str) {
+    return String(str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  grid.innerHTML = posts.map((post, i) => `
+    <a class="home-blog-card reveal-up delay-${i + 1}" href="blog/post.html?id=${post.id}">
+      <div class="home-blog-thumb">
+        ${post.coverImage
+          ? `<img src="${post.coverImage}" alt="${esc(post.title)}" loading="lazy" />`
+          : `<div class="home-blog-thumb-ph">
+               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="4" y="8" width="40" height="32" rx="3"/><circle cx="16" cy="20" r="4"/><path d="M4 32l10-8 8 6 8-8 10 10"/></svg>
+             </div>`
+        }
+      </div>
+      <div class="home-blog-body">
+        <div class="home-blog-meta">
+          <span class="home-blog-cat">${esc(post.category)}</span>
+          <span class="home-blog-date">${window.KK.formatDate(post.createdAt)}</span>
+        </div>
+        <h3 class="home-blog-title">${esc(post.title)}</h3>
+        ${post.excerpt ? `<p class="home-blog-excerpt">${esc(post.excerpt)}</p>` : ''}
+        <span class="home-blog-link">
+          続きを読む
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+  `).join('');
+
+  // 追加されたカードにもrevealを適用
+  const newCards = grid.querySelectorAll('.reveal-up');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  newCards.forEach(el => observer.observe(el));
+})();

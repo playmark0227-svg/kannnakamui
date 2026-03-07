@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>管理画面 — KANNA KAMUY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet" />
+  <!-- Quill.js WYSIWYG エディタ -->
+  <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+<!-- ========== ログイン画面 ========== -->
+<div id="view-login" class="view active">
+  <div class="login-wrap">
+    <div class="login-logo">
+      <p class="login-logo-en">KANNA KAMUY</p>
+      <p class="login-logo-ja">管理画面</p>
+    </div>
+    <form id="login-form" class="login-form" novalidate>
+      <div class="field">
+        <label for="l-user">ユーザー名</label>
+        <input type="text" id="l-user" autocomplete="username" placeholder="admin" required />
+      </div>
+      <div class="field">
+        <label for="l-pass">パスワード</label>
+        <input type="password" id="l-pass" autocomplete="current-password" placeholder="••••••••" required />
+      </div>
+      <p class="login-error" id="login-error"></p>
+      <button type="submit" class="btn-login">ログイン</button>
+    </form>
+    <a href="../index.html" class="login-back">← サイトトップへ戻る</a>
+  </div>
+</div>
+
+<!-- ========== ダッシュボード ========== -->
+<div id="view-dashboard" class="view">
+
+  <!-- サイドバー -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <p class="sidebar-logo-en">KANNA KAMUY</p>
+      <p class="sidebar-logo-sub">Store Admin</p>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="sidebar-nav-label">コンテンツ</p>
+      <button class="sidebar-btn active" data-panel="panel-posts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h6M7 16h8"/></svg>
+        実績・ブログ記事
+      </button>
+      <p class="sidebar-nav-label">EC（準備中）</p>
+      <button class="sidebar-btn" data-panel="panel-products">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        商品管理
+      </button>
+      <button class="sidebar-btn" data-panel="panel-orders">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+        注文管理
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn-logout" id="btn-logout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        ログアウト
+      </button>
+    </div>
+  </aside>
+
+  <!-- メインコンテンツ -->
+  <div class="main-content">
+
+    <!-- トップバー -->
+    <div class="topbar">
+      <p class="topbar-title" id="topbar-title">実績・ブログ記事</p>
+      <div class="topbar-right">
+        <a href="../blog/index.html" target="_blank" class="topbar-site-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          ブログを表示
+        </a>
+        <a href="../index.html" target="_blank" class="topbar-site-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          サイトトップ
+        </a>
+      </div>
+    </div>
+
+    <!-- ─── ブログ記事パネル ─── -->
+    <div class="panel active" id="panel-posts">
+
+      <!-- 一覧ビュー -->
+      <div id="posts-list-view">
+        <div class="panel-header">
+          <div>
+            <h1 class="panel-title">実績・ブログ記事</h1>
+            <p class="panel-subtitle">記事の作成・編集・公開管理を行えます</p>
+          </div>
+          <button class="btn-new-post" id="btn-new-post">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            新規投稿
+          </button>
+        </div>
+
+        <div class="filter-bar">
+          <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">すべて</button>
+            <button class="filter-btn" data-filter="published">公開済み</button>
+            <button class="filter-btn" data-filter="draft">下書き</button>
+          </div>
+          <p class="posts-count" id="posts-count"></p>
+        </div>
+
+        <!-- テーブル -->
+        <div class="table-wrap" id="table-wrap">
+          <table class="posts-table">
+            <thead>
+              <tr>
+                <th>タイトル</th>
+                <th>カテゴリ</th>
+                <th>ステータス</th>
+                <th>作成日</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="posts-tbody"></tbody>
+          </table>
+        </div>
+
+        <!-- 空状態 -->
+        <div class="posts-empty" id="posts-empty">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="8" y="8" width="48" height="48" rx="4"/><path d="M20 24h24M20 32h16M20 40h20" stroke-linecap="round"/></svg>
+          <p>まだ記事がありません。「新規投稿」から作成してください。</p>
+        </div>
+      </div>
+
+      <!-- 編集ビュー -->
+      <div id="posts-edit-view">
+        <div class="edit-header">
+          <button class="btn-back-list" id="btn-back-list">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            一覧に戻る
+          </button>
+          <h2 class="edit-view-title" id="edit-view-title">新規投稿</h2>
+        </div>
+
+        <form id="post-form" novalidate>
+          <input type="hidden" id="edit-id" />
+
+          <div class="edit-layout">
+            <!-- 左カラム：本文 -->
+            <div>
+              <div class="form-card">
+                <div class="form-card-header">
+                  <p class="form-card-title">記事内容</p>
+                </div>
+                <div class="form-card-body">
+                  <div class="form-field">
+                    <label class="form-label" for="f-title">
+                      タイトル <span class="required">*</span>
+                    </label>
+                    <input type="text" id="f-title" class="form-input" placeholder="記事のタイトルを入力" required />
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" for="f-excerpt">抜粋（一覧に表示される要約）</label>
+                    <textarea id="f-excerpt" class="form-textarea" placeholder="この記事の概要を2〜3文で入力してください" rows="3"></textarea>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label">本文</label>
+                    <!-- 隠しフィールド（HTML保存用） -->
+                    <input type="hidden" id="f-body" />
+                    <!-- Quill WYSIWYG エディタ -->
+                    <div class="quill-wrap">
+                      <div id="quill-editor"></div>
+                    </div>
+                    <p class="form-hint">太字・見出し・リスト・リンクなどをツールバーから操作できます</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 右カラム：設定 -->
+            <div>
+              <!-- 公開設定 -->
+              <div class="form-card" style="margin-bottom:1rem">
+                <div class="form-card-header">
+                  <p class="form-card-title">公開設定</p>
+                </div>
+                <div class="form-card-body">
+                  <div class="form-field">
+                    <label class="form-label" for="f-status">ステータス</label>
+                    <select id="f-status" class="form-select">
+                      <option value="draft">下書き</option>
+                      <option value="published">公開</option>
+                    </select>
+                  </div>
+                  <div class="form-actions">
+                    <button type="submit" class="btn-publish">公開して保存</button>
+                    <button type="button" class="btn-save-draft" id="btn-save-draft">下書き保存</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- カテゴリ・タグ -->
+              <div class="form-card" style="margin-bottom:1rem">
+                <div class="form-card-header">
+                  <p class="form-card-title">分類</p>
+                </div>
+                <div class="form-card-body">
+                  <div class="form-field">
+                    <label class="form-label" for="f-category">カテゴリ</label>
+                    <select id="f-category" class="form-select">
+                      <option value="実績">実績</option>
+                      <option value="相続手続き">相続手続き</option>
+                      <option value="遺言書作成">遺言書作成</option>
+                      <option value="終活サポート">終活サポート</option>
+                      <option value="お知らせ">お知らせ</option>
+                      <option value="コラム">コラム</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" for="f-tags">タグ（カンマ区切り）</label>
+                    <input type="text" id="f-tags" class="form-input" placeholder="相続, 遺言, 終活" />
+                    <p class="form-hint">複数のタグはカンマで区切ってください</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- カバー画像 -->
+              <div class="form-card">
+                <div class="form-card-header">
+                  <p class="form-card-title">カバー画像</p>
+                </div>
+                <div class="form-card-body">
+                  <div class="cover-upload-area" id="cover-upload-area">
+                    <div class="cover-placeholder" id="cover-placeholder">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                      <p>クリックして画像を選択</p>
+                      <span>JPG / PNG / WebP (3MB以内)</span>
+                    </div>
+                    <img id="cover-preview-img" class="cover-preview-img" src="" alt="カバー画像プレビュー" />
+                    <button type="button" class="btn-cover-clear" id="btn-cover-clear">×</button>
+                    <input type="file" id="f-cover" accept="image/*" style="display:none" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div><!-- /panel-posts -->
+
+    <!-- ─── 商品管理（Coming Soon） ─── -->
+    <div class="panel" id="panel-products">
+      <div class="panel-header">
+        <div>
+          <h1 class="panel-title">商品管理</h1>
+          <p class="panel-subtitle">EC機能（開発予定）</p>
+        </div>
+      </div>
+      <div class="coming-soon-panel">
+        <div class="coming-soon-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <h2 class="coming-soon-title">商品管理機能（準備中）</h2>
+        <p class="coming-soon-text">ECサイト機能の実装に合わせて<br>商品の登録・編集・在庫管理ができるようになります。</p>
+        <span class="coming-soon-badge">Coming Soon</span>
+      </div>
+    </div>
+
+    <!-- ─── 注文管理（Coming Soon） ─── -->
+    <div class="panel" id="panel-orders">
+      <div class="panel-header">
+        <div>
+          <h1 class="panel-title">注文管理</h1>
+          <p class="panel-subtitle">EC機能（開発予定）</p>
+        </div>
+      </div>
+      <div class="coming-soon-panel">
+        <div class="coming-soon-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+        </div>
+        <h2 class="coming-soon-title">注文管理機能（準備中）</h2>
+        <p class="coming-soon-text">ECサイト機能の実装に合わせて<br>注文の確認・発送状況管理ができるようになります。</p>
+        <span class="coming-soon-badge">Coming Soon</span>
+      </div>
+    </div>
+
+  </div><!-- /main-content -->
+</div><!-- /view-dashboard -->
+
+<!-- 削除確認モーダル -->
+<div class="modal-overlay" id="modal-delete">
+  <div class="modal-box">
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+    </div>
+    <h2 class="modal-title">記事を削除しますか？</h2>
+    <p class="modal-text">削除した記事は元に戻すことができません。<br>本当に削除してもよろしいですか？</p>
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" id="btn-delete-cancel">キャンセル</button>
+      <button class="btn-modal-delete" id="btn-delete-confirm">削除する</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast通知 -->
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+<script src="../assets/js/store.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
