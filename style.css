@@ -632,6 +632,17 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   margin-top: 3rem;
 }
 
+/* 5サービス対応：4・5枚目を2カラムで中央寄せ */
+.services-grid .service-card--bottom {
+  /* 2枚を3カラムの中に均等配置 */
+}
+.services-grid .service-card--bottom:first-of-type {
+  grid-column: 1 / 2;
+}
+.services-grid .service-card--bottom:last-of-type {
+  grid-column: 2 / 3;
+}
+
 .service-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
