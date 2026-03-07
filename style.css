@@ -434,6 +434,164 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 
 /* ============================================
+   MESSAGE (代表挨拶)
+   ============================================ */
+.message {
+  padding: var(--section-py) 0;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+.message::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 40%;
+  height: 100%;
+  background: var(--color-dark-2);
+  clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+  z-index: 0;
+}
+
+.message-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+/* ---- Profile column ---- */
+.message-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.message-photo-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+.message-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 2px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 56px rgba(0,0,0,0.22);
+}
+.message-photo-deco {
+  position: absolute;
+  bottom: -12px; right: -12px;
+  width: 100%; height: 100%;
+  border: 1px solid rgba(184,150,110,0.4);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.message-name-block {
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 1.5rem;
+  background: var(--color-dark);
+  border-top: 2px solid var(--color-gold);
+}
+.message-company {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: 0.35rem;
+}
+.message-role {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 0.4rem;
+}
+.message-name-ja {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--color-white);
+  letter-spacing: 0.2em;
+  margin-bottom: 0.25rem;
+}
+.message-name-en {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+}
+
+/* ---- Body column ---- */
+.message-body {
+  padding-top: 0.5rem;
+}
+.message-title {
+  margin-bottom: 2rem;
+}
+
+.message-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 2.25rem;
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.message-text p {
+  font-size: 0.93rem;
+  color: var(--color-text-light);
+  line-height: 2.1;
+}
+.message-text strong {
+  color: var(--color-gold-dark);
+  font-weight: 500;
+}
+
+.message-closing {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem 2rem;
+  background: var(--color-dark-2);
+  border-left: 2px solid var(--color-gold);
+  border-radius: 0 2px 2px 0;
+  margin-bottom: 2rem;
+}
+.message-closing p {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 2;
+}
+
+.message-sig {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.message-sig-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--color-dark);
+}
+
+/* sp-only helper */
+.sp-only { display: none; }
+
+/* ============================================
    SERVICES
    ============================================ */
 .services {
@@ -1072,6 +1230,13 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   }
   .contact-inner { grid-template-columns: 1fr; }
   .contact-heading { margin-bottom: 2rem; }
+
+  /* Message — tablet */
+  .message::before { display: none; }
+  .message-inner {
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+  }
 }
 
 /* ============================================
@@ -1163,6 +1328,21 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   /* Contact video */
   .contact-video--horizontal { display: none; }
   .contact-video--vertical   { display: block; }
+
+  /* Message — mobile */
+  .message::before { display: none; }
+  .message-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .message-profile {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1.5rem;
+  }
+  .message-photo-wrap { max-width: 140px; flex-shrink: 0; }
+  .message-name-block { text-align: left; max-width: none; flex: 1; padding: 1rem; }
+  .sp-only { display: inline; }
 }
 
 /* ============================================
