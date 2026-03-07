@@ -481,6 +481,126 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
 }
 
+/* ── リリーススケジュール タイムライン ── */
+.ec-timeline {
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.ec-timeline-title {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  padding-left: 0.25rem;
+}
+
+.ec-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+/* 縦線 */
+.ec-timeline-list::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--heki) 0%, var(--border) 100%);
+}
+
+.ec-timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+
+.ec-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* ドット */
+.tl-dot {
+  position: absolute;
+  left: -1.5rem;
+  top: 4px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--white);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+/* 完了済み */
+.ec-timeline-item.done .tl-dot {
+  background: var(--heki);
+  border-color: var(--heki);
+}
+
+/* 現在進行中 */
+.ec-timeline-item.current .tl-dot {
+  background: var(--white);
+  border-color: var(--heki);
+  box-shadow: 0 0 0 4px var(--heki-muted);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 4px var(--heki-muted); }
+  50%       { box-shadow: 0 0 0 8px rgba(46,125,119,0.08); }
+}
+
+.tl-body { flex: 1; }
+
+.tl-date {
+  font-size: 0.73rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--heki);
+  margin-bottom: 0.15rem;
+}
+
+.ec-timeline-item.done .tl-date {
+  color: var(--text-light);
+}
+
+.tl-label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.15rem;
+}
+
+.ec-timeline-item.done .tl-label {
+  color: var(--text-muted);
+}
+
+.tl-note {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.ec-notify-sub {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  margin-top: -0.5rem;
+}
+
 /* ── レスポンシブ ── */
 .sp-hide { display: inline; }
 

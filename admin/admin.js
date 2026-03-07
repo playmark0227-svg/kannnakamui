@@ -87,8 +87,8 @@ function showView(id) {
 /* ─── Panel switcher ─── */
 const PANEL_TITLES = {
   'panel-posts':    '実績・ブログ記事',
-  'panel-products': '商品管理（準備中）',
-  'panel-orders':   '注文管理（準備中）',
+  'panel-products': '出品・商品管理（古物マーケット 準備中）',
+  'panel-orders':   '取引・注文管理（古物マーケット 準備中）',
 };
 
 function showPanel(id) {

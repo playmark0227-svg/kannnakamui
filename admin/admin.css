@@ -970,6 +970,52 @@ input, textarea, select { font-family: inherit; }
   letter-spacing: 0.06em;
 }
 
+/* ── Coming Soon タイムライン ── */
+.coming-soon-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+  width: 100%;
+  max-width: 380px;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.cs-tl-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.79rem;
+  color: var(--text-muted);
+}
+
+.cs-tl-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--white);
+  flex-shrink: 0;
+}
+
+.cs-tl-item.cs-done .cs-tl-dot {
+  background: var(--heki);
+  border-color: var(--heki);
+}
+
+.cs-tl-item.cs-active .cs-tl-dot {
+  background: var(--white);
+  border-color: var(--heki);
+  box-shadow: 0 0 0 3px var(--heki-muted);
+}
+
+.cs-tl-item.cs-done .cs-tl-text { color: var(--text-light); }
+.cs-tl-item.cs-active .cs-tl-text { color: var(--text); }
+.cs-tl-item.cs-active strong { color: var(--heki); }
+
 /* ══════════════════════════════════════════════════
    削除確認モーダル
 ══════════════════════════════════════════════════ */

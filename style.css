@@ -920,6 +920,18 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   letter-spacing: 0.03em;
 }
 
+.ec-banner-release {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0.7rem;
+  background: rgba(46,125,119,0.25);
+  border: 1px solid rgba(46,125,119,0.4);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.75);
+}
+
 .ec-banner-right {
   display: flex;
   flex-direction: column;
