@@ -71,7 +71,12 @@
     </div>
 
     <div class="hero-content">
-      <p class="hero-eyebrow reveal-up">人生に寄り添う支援</p>
+      <p class="hero-eyebrow reveal-up">
+        <svg class="eyebrow-flame" viewBox="0 0 14 20" aria-hidden="true">
+          <path d="M7 1c1 3 4.5 5 4.5 10a4.5 4.5 0 01-9 0c0-2 1-3.5 2-4.5-0.4 2 0.8 3 2 3 0.8-2.5-2-4.5 0.5-8.5z" fill="currentColor"/>
+        </svg>
+        人生に寄り添う支援
+      </p>
       <h1 class="hero-title reveal-up delay-1">
         <span class="hero-title-en">KANNA KAMUY</span>
         <span class="hero-title-line"></span>
@@ -95,6 +100,11 @@
 
   <!-- ========== CONCEPT ========== -->
   <section class="concept" id="about">
+    <!-- 消防モチーフ装飾：ホース -->
+    <svg class="concept-decor concept-decor--hose" viewBox="0 0 200 80" aria-hidden="true">
+      <path d="M4 60 C4 60 30 60 45 48 C60 36 60 16 85 16 C110 16 110 36 125 48 C140 60 180 60 180 60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <rect x="180" y="52" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+    </svg>
     <div class="container">
       <div class="concept-inner">
         <div class="concept-text">
@@ -147,12 +157,11 @@
                 <p>不用品買取・古物マーケットで、大切な品を次の人へ</p>
               </div>
             </div>
-            <div class="concept-card-item">
-              <div class="concept-icon">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
-                  <path d="M24 8c8.837 0 16 7.163 16 16S32.837 40 24 40 8 32.837 8 24 15.163 8 24 8z"/>
-                  <path d="M24 8v8M24 32v8M8 24h8M32 24h8" stroke-linecap="round"/>
-                  <circle cx="24" cy="24" r="4" fill="currentColor"/>
+            <div class="concept-card-item concept-card-item--fire">
+              <div class="concept-icon concept-icon--fire">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
+                  <path d="M24 42 C24 42 8 32 8 20 C8 12 14 6 17 1 C19 7 20 10 20 10 C20 10 22 5 22 0 C26 6 31 12 32 20 C33 24 31 30 28 34 C30 30 32 26 31 20 C35 26 37 32 37 36 C37 42 24 42 24 42Z" stroke-linejoin="round" stroke-linecap="round"/>
+                  <path d="M24 38 C24 38 14 32 14 24 C14 18 18 14 20 10 C21 14 22 16 22 16 C22 16 23 12 23 8 C26 12 29 16 30 22 C30 26 29 30 27 32 C28 30 29 28 28 24 C31 28 32 32 32 34 C32 38 24 38 24 38Z" stroke-linejoin="round" stroke-linecap="round" opacity="0.55"/>
                 </svg>
               </div>
               <div>
@@ -168,6 +177,19 @@
 
   <!-- ========== MESSAGE ========== -->
   <section class="message" id="message">
+    <!-- 消防モチーフ ウォーターマーク -->
+    <svg class="message-watermark message-watermark--helmet" viewBox="0 0 200 130" aria-hidden="true">
+      <path d="M100 10C65 10 40 38 40 68v4h120v-4C160 38 135 10 100 10z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M20 72h160v10c0 10-6 16-14 16H34c-8 0-14-6-14-16v-10z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <rect x="72" y="48" width="56" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M8 72h16M176 72h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="60" cy="85" r="3" fill="currentColor"/>
+      <circle cx="140" cy="85" r="3" fill="currentColor"/>
+    </svg>
+    <svg class="message-watermark message-watermark--flame" viewBox="0 0 60 84" aria-hidden="true">
+      <path d="M30 82 C30 82 6 66 6 42 C6 26 16 16 20 4 C22 14 24 20 24 20 C24 20 26 12 26 2 C32 12 40 22 42 34 C44 42 42 52 38 58 C40 52 42 46 41 38 C46 46 48 54 48 60 C48 74 30 82 30 82Z"
+        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>
     <div class="container">
       <div class="message-inner">
 
@@ -196,7 +218,7 @@
           <div class="message-text reveal-up delay-2">
             <p>平素より格別なるご高配を賜り、誠にありがとうございます。<br>KANNA KAMUY 代表の中尾 生馬です。</p>
             <p>私が人の一生に向き合う仕事に携わるようになった背景には、自身のこれまでの経験が大きく影響しています。</p>
-            <p>かつて私は、消防士として災害現場に身を置き、多くの命と向き合ってきました。火災をはじめとする災害や事故の現場では、日常だったはずの暮らしが、一瞬で失われていく現実があります。</p>
+            <p>かつて私は、<span class="flame-keyword"><svg viewBox="0 0 12 16" aria-hidden="true"><path d="M6 1c0.8 2.4 3.8 4 3.8 8a3.8 3.8 0 01-7.6 0c0-1.6 0.8-2.8 1.6-3.6-0.3 1.6 0.6 2.4 1.6 2.4 0.6-2-1.6-3.6 0.6-6.8z" fill="currentColor"/></svg>消防士</span>として災害現場に身を置き、多くの命と向き合ってきました。火災をはじめとする災害や事故の現場では、日常だったはずの暮らしが、一瞬で失われていく現実があります。</p>
             <p>失われていく日常と同時に、その場に残される家族の想い、そして目には見えない人生の重みを、私は何度も目の当たりにしてきました。</p>
             <p>その経験を通して強く感じたのは、命を守ることと同じくらい、<strong>人生をどう敬い、どう送り、どう次へつないでいくか</strong>が大切だということでした。</p>
             <p>KANNA KAMUYは、人生の「いま」と真摯に向き合い、歩んできた一生を敬いながら、家族とともに迎える"最後のお引越し"をお手伝いし、その想いを次の世代の未来へとつないでいきます。</p>
@@ -206,7 +228,7 @@
 
           <div class="message-closing reveal-up delay-3">
             <p>人生を守り、一生を敬い、想いを次へつないでいく。</p>
-            <p>それは、私自身が消防の現場で胸に刻んだ想いであり、今もなお大切にし続けている姿勢です。</p>
+            <p>それは、私自身が<span class="flame-keyword"><svg viewBox="0 0 12 16" aria-hidden="true"><path d="M6 1c0.8 2.4 3.8 4 3.8 8a3.8 3.8 0 01-7.6 0c0-1.6 0.8-2.8 1.6-3.6-0.3 1.6 0.6 2.4 1.6 2.4 0.6-2-1.6-3.6 0.6-6.8z" fill="currentColor"/></svg>消防の現場</span>で胸に刻んだ想いであり、今もなお大切にし続けている姿勢です。</p>
             <p>一人ひとりの人生に、静かに寄り添い続けること。それが、私たちKANNA KAMUYの使命であり、これからも変わることのない想いです。</p>
           </div>
 
@@ -219,116 +241,29 @@
     </div>
   </section>
 
-  <!-- ========== ORIGIN (消防) ========== -->
-  <section class="origin" id="origin">
-    <!-- 火の粉エフェクト -->
-    <div class="origin-embers" aria-hidden="true">
+  <!-- ========== ORIGIN (消防) — コンパクト帯 ========== -->
+  <section class="origin-strip" id="origin" aria-label="消防の原点">
+    <div class="origin-strip-embers" aria-hidden="true">
       <span class="ember"></span><span class="ember"></span><span class="ember"></span>
       <span class="ember"></span><span class="ember"></span><span class="ember"></span>
-      <span class="ember"></span><span class="ember"></span><span class="ember"></span>
-      <span class="ember"></span><span class="ember"></span><span class="ember"></span>
-      <span class="ember"></span><span class="ember"></span><span class="ember"></span>
+      <span class="ember"></span><span class="ember"></span>
     </div>
     <div class="container">
-      <div class="origin-inner">
-        <p class="section-label origin-label reveal-up">Our Origin — 消防の現場から</p>
-        <h2 class="origin-title reveal-up delay-1">
-          消防士として命と向き合った現場が、<br>
-          <span class="origin-title-em">KANNA KAMUY の原点。</span>
-        </h2>
-
-        <!-- 炎イラスト＋消防アイコン -->
-        <div class="origin-visual reveal-up delay-2">
-
-          <!-- 左：消防ヘルメット -->
-          <div class="origin-tool">
-            <div class="origin-tool-icon">
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M32 10C20 10 12 22 12 34v2h40v-2c0-12-8-24-20-24z" stroke-linejoin="round"/>
-                <path d="M8 36h48v4c0 4-3 6-6 6H14c-3 0-6-2-6-6v-4z" stroke-linejoin="round"/>
-                <rect x="22" y="26" width="20" height="6" rx="2"/>
-                <path d="M4 36h8M52 36h8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span>消防ヘルメット</span>
-          </div>
-
-          <!-- 中央：炎イラスト（メイン） -->
-          <div class="origin-flame-wrap">
-            <div class="origin-flame-glow" aria-hidden="true"></div>
-            <svg class="origin-flame" viewBox="0 0 100 160" fill="none">
-              <!-- 外炎 -->
-              <path class="flame-layer flame-outer"
-                d="M50 155
-                   C50 155 10 128 10 88
-                   C10 58 26 36 32 14
-                   C36 30 40 40 40 40
-                   C40 40 44 20 44 6
-                   C52 24 64 38 68 60
-                   C72 76 68 96 60 108
-                   C66 98 70 84 68 70
-                   C78 84 82 100 82 114
-                   C82 140 50 155 50 155Z"/>
-              <!-- 中炎 -->
-              <path class="flame-layer flame-mid"
-                d="M50 148
-                   C50 148 22 126 22 94
-                   C22 72 32 56 36 38
-                   C38 50 42 58 42 58
-                   C42 58 46 42 46 28
-                   C52 42 60 54 62 70
-                   C64 82 60 96 54 106
-                   C58 98 62 88 60 76
-                   C68 86 70 100 70 110
-                   C70 132 50 148 50 148Z"/>
-              <!-- 内炎（コア） -->
-              <path class="flame-layer flame-core"
-                d="M50 140
-                   C50 140 34 122 34 100
-                   C34 82 40 68 44 52
-                   C46 62 48 70 48 70
-                   C48 70 50 56 50 44
-                   C56 56 62 66 64 80
-                   C66 92 62 106 56 114
-                   C60 106 64 96 62 86
-                   C68 96 68 108 68 116
-                   C68 132 50 140 50 140Z"/>
-              <!-- 核（白） -->
-              <ellipse class="flame-nucleus" cx="50" cy="124" rx="8" ry="14"/>
-            </svg>
-          </div>
-
-          <!-- 右：消火器 -->
-          <div class="origin-tool">
-            <div class="origin-tool-icon">
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-                <rect x="24" y="22" width="16" height="30" rx="8"/>
-                <path d="M32 22v-8" stroke-linecap="round"/>
-                <path d="M28 14h8" stroke-linecap="round"/>
-                <path d="M40 30c5 0 10-4 10-8" stroke-linecap="round"/>
-                <path d="M30 34h4" stroke-linecap="round"/>
-                <path d="M32 52v4M28 56h8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span>消火器</span>
-          </div>
-
-        </div>
-
-        <!-- 消防ホース -->
-        <div class="origin-hose reveal-up delay-3" aria-hidden="false">
-          <div class="origin-hose-icon">
-            <svg viewBox="0 0 120 48" fill="none" stroke="currentColor" stroke-width="1.4">
-              <path d="M4 36 C4 36 20 36 28 28 C36 20 36 8 50 8 C64 8 64 20 72 28 C80 36 96 36 96 36"
-                stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="96" y="28" width="20" height="16" rx="4" stroke-linejoin="round"/>
-              <path d="M116 32 L122 28 M116 38 L122 42 M116 36 L124 36" stroke-linecap="round"/>
-              <rect x="0" y="30" width="8" height="12" rx="2"/>
-            </svg>
-          </div>
-          <span class="origin-hose-label">消防ホース</span>
-        </div>
-
+      <div class="origin-strip-inner reveal-up">
+        <svg class="origin-strip-flame" viewBox="0 0 40 56" aria-hidden="true">
+          <path class="flame-layer flame-outer" d="M20 54 C20 54 4 44 4 30 C4 20 10 12 13 4 C14 10 16 14 16 14 C16 14 18 8 18 2 C22 8 27 14 29 22 C30 28 28 34 25 38 C27 34 29 30 28 24 C32 30 34 36 34 40 C34 49 20 54 20 54Z"/>
+          <path class="flame-layer flame-core" d="M20 48 C20 48 12 42 12 32 C12 24 16 18 18 12 C19 18 20 22 20 22 C20 22 21 16 21 10 C24 16 27 22 28 28 C29 32 27 38 25 42 C26 38 28 34 27 28 C30 34 30 40 30 42 C30 48 20 48 20 48Z"/>
+        </svg>
+        <p class="origin-strip-text">
+          <span class="origin-strip-label">From Fire Department</span>
+          <span class="origin-strip-main">代表・中尾は元<strong>消防士</strong>。<span class="origin-strip-sep">／</span>命と向き合った現場経験が KANNA KAMUY の原点です。</span>
+        </p>
+        <svg class="origin-strip-helmet" viewBox="0 0 64 40" aria-hidden="true">
+          <path d="M32 4C20 4 10 14 10 24v2h44v-2C54 14 44 4 32 4z" stroke-linejoin="round"/>
+          <path d="M4 26h56v4c0 4-3 6-6 6H10c-3 0-6-2-6-6v-4z" stroke-linejoin="round"/>
+          <rect x="22" y="18" width="20" height="5" rx="1.5"/>
+          <path d="M0 26h6M58 26h6" stroke-linecap="round"/>
+        </svg>
       </div>
     </div>
   </section>
@@ -336,6 +271,17 @@
   <!-- ========== SERVICES ========== -->
   <section class="services" id="services">
     <div class="services-bg-text" aria-hidden="true">SERVICES</div>
+    <!-- 消防モチーフ装飾：消火栓（コーナー） -->
+    <svg class="services-decor services-decor--hydrant" viewBox="0 0 60 100" aria-hidden="true">
+      <path d="M22 20h16v6h-16z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="18" y="26" width="24" height="44" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="30" cy="48" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M18 38h-6M42 38h6M18 58h-6M42 58h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M14 38v-4M46 38v-4M14 58v-4M46 58v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="14" y="70" width="32" height="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M20 76v14M40 76v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M10 14h40l-4 6H14z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal-up">Services</p>
@@ -509,6 +455,17 @@
 
   <!-- ========== FLOW ========== -->
   <section class="flow" id="flow">
+    <!-- 消防モチーフ装飾：梯子 -->
+    <svg class="flow-decor flow-decor--ladder" viewBox="0 0 40 200" aria-hidden="true">
+      <line x1="10" y1="0" x2="10" y2="200" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="30" y1="0" x2="30" y2="200" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="10" y1="20" x2="30" y2="20" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="10" y1="50" x2="30" y2="50" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="10" y1="80" x2="30" y2="80" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="10" y1="110" x2="30" y2="110" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="10" y1="140" x2="30" y2="140" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="10" y1="170" x2="30" y2="170" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal-up">Flow</p>
@@ -755,6 +712,19 @@
           <p class="footer-logo-en">KANNA KAMUY</p>
           <p class="footer-logo-ja">人生に寄り添う支援</p>
           <p class="footer-tagline">いまをまもり、これまでの歩みをのこし、<br>未来に想いをつなぐ。</p>
+          <!-- 元消防士 エンブレム -->
+          <div class="footer-fire-badge" aria-label="元消防士が運営">
+            <svg class="footer-fire-badge-icon" viewBox="0 0 40 48" aria-hidden="true">
+              <!-- 外円 -->
+              <circle cx="20" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              <!-- 炎 -->
+              <path d="M20 38 C20 38 9 31 9 22 C9 15 13 10 15 6 C16 10 17 12 17 12 C17 12 18 9 18 4 C21 9 24 14 25 20 C26 24 25 28 23 30 C24 28 25 26 24 22 C26 26 27 30 27 32 C27 38 20 38 20 38Z" fill="currentColor" fill-opacity="0.9"/>
+            </svg>
+            <div class="footer-fire-badge-text">
+              <span class="footer-fire-badge-en">Founded by</span>
+              <span class="footer-fire-badge-ja">元 消防士</span>
+            </div>
+          </div>
         </div>
         <div class="footer-nav">
           <h4>Navigation</h4>

@@ -1720,41 +1720,270 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 
 /* ============================================
-   ORIGIN (消防) — Firefighter heritage section
+   ORIGIN STRIP — コンパクト帯（消防の原点）
    ============================================ */
-.origin {
+.origin-strip {
   position: relative;
-  padding: clamp(72px, 10vw, 120px) 0 clamp(80px, 11vw, 130px);
-  background: linear-gradient(180deg, #090E0D 0%, #0F1918 45%, #151F1E 75%, #0A0F0E 100%);
+  padding: 38px 0;
+  background: linear-gradient(90deg, #0A0F0E 0%, #131C1B 50%, #0A0F0E 100%);
   color: var(--color-bg);
   overflow: hidden;
   isolation: isolate;
-  border-top: 1px solid rgba(200, 100, 30, 0.2);
-  border-bottom: 1px solid rgba(184, 150, 110, 0.12);
+  border-top: 1px solid rgba(220, 100, 30, 0.22);
+  border-bottom: 1px solid rgba(220, 100, 30, 0.22);
 }
-
-/* 背景グロー */
-.origin::before {
+.origin-strip::before {
   content: "";
   position: absolute;
-  bottom: 0; left: 50%; transform: translateX(-50%);
-  width: 600px; height: 420px;
-  background: radial-gradient(ellipse, rgba(220, 90, 20, 0.22) 0%, rgba(200, 70, 10, 0.08) 45%, transparent 75%);
+  inset: 0;
+  background:
+    radial-gradient(ellipse 40% 100% at 50% 60%, rgba(220, 100, 30, 0.22) 0%, transparent 65%);
   pointer-events: none;
   animation: originBaseGlow 5s ease-in-out infinite alternate;
 }
 @keyframes originBaseGlow {
-  0%   { opacity: 0.7; transform: translateX(-50%) scaleY(1); }
-  100% { opacity: 1;   transform: translateX(-50%) scaleY(1.1); }
+  0%   { opacity: 0.7; }
+  100% { opacity: 1;   }
 }
-
-/* 火の粉エフェクト */
-.origin-embers {
+.origin-strip-embers {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
 }
+.origin-strip-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  max-width: 900px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+.origin-strip-flame {
+  width: 32px;
+  height: 44px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 14px rgba(230, 120, 30, 0.7));
+}
+.origin-strip-flame .flame-outer { fill: #E07020; animation: flameWave 2s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+.origin-strip-flame .flame-core  { fill: #F4B030; animation: flameWave 1.5s ease-in-out infinite alternate-reverse; transform-origin: 50% 100%; }
+.origin-strip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  line-height: 1.5;
+  text-align: left;
+}
+.origin-strip-label {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #E8904A;
+}
+.origin-strip-main {
+  font-family: var(--font-serif);
+  font-size: clamp(0.85rem, 1.1vw, 0.98rem);
+  color: rgba(245, 250, 249, 0.88);
+  letter-spacing: 0.03em;
+}
+.origin-strip-main strong {
+  color: #F4B060;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(244, 176, 96, 0.5);
+  padding: 0 2px 1px;
+}
+.origin-strip-sep {
+  color: rgba(244, 176, 96, 0.45);
+  padding: 0 0.4em;
+}
+.origin-strip-helmet {
+  width: 56px;
+  height: 36px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: rgba(232, 160, 96, 0.6);
+  filter: drop-shadow(0 0 8px rgba(220, 100, 30, 0.3));
+}
+
+/* ============================================
+   消防モチーフ 散りばめデコレーション
+   ============================================ */
+
+/* --- Hero: eyebrow 炎アイコン --- */
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; }
+.eyebrow-flame {
+  width: 11px;
+  height: 16px;
+  color: #E8A060;
+  filter: drop-shadow(0 0 6px rgba(230, 120, 30, 0.6));
+  animation: eyebrowFlameFlicker 2.4s ease-in-out infinite alternate;
+  transform-origin: 50% 100%;
+}
+@keyframes eyebrowFlameFlicker {
+  0%   { transform: scaleY(1)    scaleX(1); opacity: 0.85; }
+  100% { transform: scaleY(1.08) scaleX(0.95); opacity: 1; }
+}
+
+/* --- Concept: ホース装飾 --- */
+.concept { position: relative; overflow: hidden; }
+.concept-decor--hose {
+  position: absolute;
+  top: 48px;
+  right: -30px;
+  width: 200px;
+  height: 80px;
+  color: var(--color-gold);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Concept card: 炎アイコン（みらいをまもる） --- */
+.concept-icon--fire {
+  color: #E07830 !important;
+  filter: drop-shadow(0 0 12px rgba(224, 120, 48, 0.55));
+  animation: conceptFlameFlicker 2.8s ease-in-out infinite alternate;
+}
+@keyframes conceptFlameFlicker {
+  0%   { filter: drop-shadow(0 0 10px rgba(224, 120, 48, 0.4)); transform: translateY(0); }
+  100% { filter: drop-shadow(0 0 18px rgba(244, 160, 64, 0.75)); transform: translateY(-1px); }
+}
+
+/* --- Message: ウォーターマーク（ヘルメット & 炎） --- */
+.message { position: relative; overflow: hidden; }
+.message-watermark {
+  position: absolute;
+  color: var(--color-gold);
+  pointer-events: none;
+  z-index: 0;
+}
+.message-watermark--helmet {
+  top: 60px;
+  right: 40px;
+  width: 200px;
+  height: 130px;
+  opacity: 0.055;
+}
+.message-watermark--flame {
+  bottom: 80px;
+  left: 5%;
+  width: 70px;
+  height: 98px;
+  opacity: 0.1;
+  color: #E07830;
+}
+.message .container { position: relative; z-index: 1; }
+
+/* --- Message本文: flame キーワード装飾 --- */
+.flame-keyword {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  color: #C86020;
+  font-weight: 500;
+  padding: 0 0.1em;
+  position: relative;
+}
+.flame-keyword svg {
+  width: 0.85em;
+  height: 1.05em;
+  color: #E07830;
+  filter: drop-shadow(0 0 4px rgba(224, 120, 48, 0.5));
+  animation: eyebrowFlameFlicker 2.3s ease-in-out infinite alternate;
+  transform-origin: 50% 100%;
+  flex-shrink: 0;
+}
+
+/* --- Services: 消火栓装飾 --- */
+.services-decor--hydrant {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  width: 54px;
+  height: 90px;
+  color: var(--color-gold);
+  opacity: 0.14;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Flow: 梯子装飾 --- */
+.flow { position: relative; overflow: hidden; }
+.flow-decor--ladder {
+  position: absolute;
+  top: 50%;
+  left: 2.5%;
+  width: 36px;
+  height: 180px;
+  color: var(--color-gold);
+  opacity: 0.13;
+  transform: translateY(-50%) rotate(-8deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Footer: 元消防士 エンブレム --- */
+.footer-fire-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+  padding: 0.55rem 0.9rem 0.55rem 0.7rem;
+  border: 1px solid rgba(224, 120, 48, 0.4);
+  border-radius: 999px;
+  background: rgba(224, 120, 48, 0.08);
+}
+.footer-fire-badge-icon {
+  width: 28px;
+  height: 34px;
+  color: #E07830;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(224, 120, 48, 0.55));
+  animation: eyebrowFlameFlicker 2.6s ease-in-out infinite alternate;
+  transform-origin: 50% 100%;
+}
+.footer-fire-badge-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.footer-fire-badge-en {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(232, 160, 96, 0.8);
+}
+.footer-fire-badge-ja {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  color: #F4B060;
+  font-weight: 500;
+}
+
+/* --- Responsive: 散りばめデコの調整 --- */
+@media (max-width: 768px) {
+  .origin-strip { padding: 28px 0; }
+  .origin-strip-inner { flex-wrap: wrap; gap: 0.75rem; }
+  .origin-strip-helmet { display: none; }
+  .origin-strip-main { font-size: 0.82rem; }
+  .origin-strip-sep { display: none; }
+  .concept-decor--hose { width: 140px; top: 30px; right: -40px; }
+  .message-watermark--helmet { width: 130px; height: 85px; top: 30px; right: 10px; }
+  .message-watermark--flame { width: 50px; height: 72px; bottom: 40px; }
+  .services-decor--hydrant { width: 40px; height: 68px; right: 2%; }
+  .flow-decor--ladder { display: none; }
+}
+
+/* ============================================
+   共通: 火の粉 ember & 炎 flame レイヤー
+   ============================================ */
 .ember {
   position: absolute;
   bottom: 15%;
@@ -1784,154 +2013,14 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   100% { opacity: 0;   transform: translateY(-280px) translateX(40px) scale(0.2); }
 }
 
-.origin-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin-inline: auto;
-  text-align: center;
-  padding-inline: 1.25rem;
-}
-
-.origin-label {
-  color: #E8904A !important;
-  margin-bottom: 1rem;
-  font-size: 0.73rem;
-  letter-spacing: 0.3em;
-}
-.origin-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
-  font-weight: 300;
-  line-height: 1.9;
-  color: rgba(245, 250, 249, 0.92);
-  margin-bottom: 3rem;
-  letter-spacing: 0.04em;
-}
-.origin-title-em {
-  color: #E8A060;
-  font-weight: 400;
-}
-
-/* ---- 炎＋消防アイコン レイアウト ---- */
-.origin-visual {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: clamp(2rem, 6vw, 6rem);
-  margin-bottom: 2.8rem;
-}
-
-/* 消防アイコン（左右） */
-.origin-tool {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.9rem;
-  flex-shrink: 0;
-}
-.origin-tool-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  border: 1px solid rgba(220, 120, 40, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(220, 100, 20, 0.1);
-  color: #E8A060;
-  transition: border-color 0.3s, background 0.3s;
-}
-.origin-tool-icon:hover {
-  border-color: rgba(232, 160, 96, 0.6);
-  background: rgba(220, 100, 20, 0.18);
-}
-.origin-tool-icon svg { width: 40px; height: 40px; }
-.origin-tool span {
-  font-family: var(--font-serif);
-  font-size: 0.72rem;
-  color: rgba(245, 250, 249, 0.65);
-  letter-spacing: 0.12em;
-}
-
-/* ---- メイン炎 SVG ---- */
-.origin-flame-wrap {
-  position: relative;
-  width: 140px;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-}
-.origin-flame-glow {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 80px;
-  background: radial-gradient(ellipse, rgba(230, 100, 20, 0.55) 0%, rgba(230, 100, 20, 0.15) 50%, transparent 75%);
-  border-radius: 50%;
-  filter: blur(10px);
-  animation: glowPulse 2.4s ease-in-out infinite alternate;
-}
-@keyframes glowPulse {
-  0%   { opacity: 0.7; transform: translateX(-50%) scale(1); }
-  100% { opacity: 1;   transform: translateX(-50%) scale(1.15); }
-}
-.origin-flame {
-  width: 100px;
-  height: 160px;
-  position: relative;
-  z-index: 1;
-  filter: drop-shadow(0 0 18px rgba(230, 100, 20, 0.6));
-}
+/* flame レイヤー（origin-strip で使用） */
 .flame-layer { transform-origin: 50% 100%; }
-.flame-outer {
-  fill: #C84010;
-  animation: flameWave 2.2s ease-in-out infinite alternate;
-}
-.flame-mid {
-  fill: #E87820;
-  animation: flameWave 1.9s ease-in-out infinite alternate-reverse;
-}
-.flame-core {
-  fill: #F4B030;
-  animation: flameWave 1.6s ease-in-out infinite alternate;
-}
-.flame-nucleus {
-  fill: #FFF0A0;
-  opacity: 0.9;
-  animation: nucleusPulse 1.4s ease-in-out infinite alternate;
-}
 @keyframes flameWave {
   0%   { transform: scaleX(1)    scaleY(1)    rotate(-2deg); }
   100% { transform: scaleX(0.93) scaleY(1.04) rotate(2.5deg); }
 }
-@keyframes nucleusPulse {
-  0%   { opacity: 0.7; transform: scaleY(0.9); }
-  100% { opacity: 1;   transform: scaleY(1.1); }
-}
 
-/* ---- 消防ホース ---- */
-.origin-hose {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.7rem;
-  opacity: 0.85;
-}
-.origin-hose-icon {
-  color: rgba(232, 160, 96, 0.75);
-}
-.origin-hose-icon svg { width: 140px; height: 56px; }
-.origin-hose-label {
-  font-family: var(--font-serif);
-  font-size: 0.72rem;
-  color: rgba(245, 250, 249, 0.55);
-  letter-spacing: 0.12em;
-}
-
-/* ---- Service 05 炎アイコン ---- */
+/* Service 05 炎アイコン */
 .service-card--fire .service-icon--fire {
   stroke: #E07030;
   filter: drop-shadow(0 0 10px rgba(224, 112, 48, 0.5));
@@ -1940,16 +2029,4 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 @keyframes serviceFlameFlicker {
   0%   { filter: drop-shadow(0 0 10px rgba(224, 112, 48, 0.4)); }
   100% { filter: drop-shadow(0 0 18px rgba(244, 160, 64, 0.75)); }
-}
-
-/* ---- Responsive ---- */
-@media (max-width: 768px) {
-  .origin { padding: 64px 0 72px; }
-  .origin-title { font-size: 1.25rem; margin-bottom: 2.2rem; }
-  .origin-visual { gap: 1.5rem; }
-  .origin-tool-icon { width: 58px; height: 58px; }
-  .origin-tool-icon svg { width: 32px; height: 32px; }
-  .origin-flame-wrap { width: 100px; }
-  .origin-flame { width: 80px; height: 128px; }
-  .origin-hose-icon svg { width: 110px; }
 }
