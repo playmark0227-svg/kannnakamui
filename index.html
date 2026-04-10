@@ -63,6 +63,12 @@
     </video>
 
     <div class="hero-overlay"></div>
+    <!-- ヒーロー火の粉 -->
+    <div class="hero-embers" aria-hidden="true">
+      <span class="h-ember"></span><span class="h-ember"></span><span class="h-ember"></span>
+      <span class="h-ember"></span><span class="h-ember"></span><span class="h-ember"></span>
+      <span class="h-ember"></span><span class="h-ember"></span>
+    </div>
 
     <div class="hero-content">
       <p class="hero-eyebrow reveal-up">人生に寄り添う支援</p>
@@ -215,42 +221,114 @@
 
   <!-- ========== ORIGIN (消防) ========== -->
   <section class="origin" id="origin">
-    <div class="origin-bg" aria-hidden="true"></div>
-    <div class="origin-kanji" aria-hidden="true">消 防</div>
+    <!-- 火の粉エフェクト -->
+    <div class="origin-embers" aria-hidden="true">
+      <span class="ember"></span><span class="ember"></span><span class="ember"></span>
+      <span class="ember"></span><span class="ember"></span><span class="ember"></span>
+      <span class="ember"></span><span class="ember"></span><span class="ember"></span>
+      <span class="ember"></span><span class="ember"></span><span class="ember"></span>
+      <span class="ember"></span><span class="ember"></span><span class="ember"></span>
+    </div>
     <div class="container">
       <div class="origin-inner">
-        <div class="origin-icon reveal-up" aria-hidden="true">
-          <svg viewBox="0 0 64 80" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M32 6c1.8 9.5 13.5 14 13.5 28a13.5 13.5 0 01-27 0c0-6 3.8-10 7.8-12-1.8 5.8 2 9.6 5.8 9.6 2-7.6-6-15.6-0.1-25.6z" stroke-linejoin="round"/>
-            <path d="M24 48c0 4.4 3.6 8 8 8s8-3.6 8-8" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <p class="section-label origin-label reveal-up delay-1">Our Origin — 消防の現場から</p>
-        <h2 class="origin-title reveal-up delay-2">
-          命とむきあう現場で、<br>
-          <span class="origin-title-em">学んだこと。</span>
+        <p class="section-label origin-label reveal-up">Our Origin — 消防の現場から</p>
+        <h2 class="origin-title reveal-up delay-1">
+          消防士として命と向き合った現場が、<br>
+          <span class="origin-title-em">KANNA KAMUY の原点。</span>
         </h2>
-        <p class="origin-lead reveal-up delay-3">
-          代表・中尾は、かつて<strong>消防士</strong>として幾多の災害現場に立ち会ってきました。<br>
-          一瞬で失われる日常、そして残される家族の想い——<br>
-          その経験こそが、KANNA KAMUY の原点です。
-        </p>
-        <div class="origin-stats reveal-up delay-4">
-          <div class="origin-stat">
-            <span class="origin-stat-kanji">守</span>
-            <span class="origin-stat-label">現場で培った<br>「守る」視点</span>
+
+        <!-- 炎イラスト＋消防アイコン -->
+        <div class="origin-visual reveal-up delay-2">
+
+          <!-- 左：消防ヘルメット -->
+          <div class="origin-tool">
+            <div class="origin-tool-icon">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M32 10C20 10 12 22 12 34v2h40v-2c0-12-8-24-20-24z" stroke-linejoin="round"/>
+                <path d="M8 36h48v4c0 4-3 6-6 6H14c-3 0-6-2-6-6v-4z" stroke-linejoin="round"/>
+                <rect x="22" y="26" width="20" height="6" rx="2"/>
+                <path d="M4 36h8M52 36h8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span>消防ヘルメット</span>
           </div>
-          <div class="origin-stat-sep" aria-hidden="true"></div>
-          <div class="origin-stat">
-            <span class="origin-stat-kanji">備</span>
-            <span class="origin-stat-label">実体験に基づく<br>防災コンサル</span>
+
+          <!-- 中央：炎イラスト（メイン） -->
+          <div class="origin-flame-wrap">
+            <div class="origin-flame-glow" aria-hidden="true"></div>
+            <svg class="origin-flame" viewBox="0 0 100 160" fill="none">
+              <!-- 外炎 -->
+              <path class="flame-layer flame-outer"
+                d="M50 155
+                   C50 155 10 128 10 88
+                   C10 58 26 36 32 14
+                   C36 30 40 40 40 40
+                   C40 40 44 20 44 6
+                   C52 24 64 38 68 60
+                   C72 76 68 96 60 108
+                   C66 98 70 84 68 70
+                   C78 84 82 100 82 114
+                   C82 140 50 155 50 155Z"/>
+              <!-- 中炎 -->
+              <path class="flame-layer flame-mid"
+                d="M50 148
+                   C50 148 22 126 22 94
+                   C22 72 32 56 36 38
+                   C38 50 42 58 42 58
+                   C42 58 46 42 46 28
+                   C52 42 60 54 62 70
+                   C64 82 60 96 54 106
+                   C58 98 62 88 60 76
+                   C68 86 70 100 70 110
+                   C70 132 50 148 50 148Z"/>
+              <!-- 内炎（コア） -->
+              <path class="flame-layer flame-core"
+                d="M50 140
+                   C50 140 34 122 34 100
+                   C34 82 40 68 44 52
+                   C46 62 48 70 48 70
+                   C48 70 50 56 50 44
+                   C56 56 62 66 64 80
+                   C66 92 62 106 56 114
+                   C60 106 64 96 62 86
+                   C68 96 68 108 68 116
+                   C68 132 50 140 50 140Z"/>
+              <!-- 核（白） -->
+              <ellipse class="flame-nucleus" cx="50" cy="124" rx="8" ry="14"/>
+            </svg>
           </div>
-          <div class="origin-stat-sep" aria-hidden="true"></div>
-          <div class="origin-stat">
-            <span class="origin-stat-kanji">継</span>
-            <span class="origin-stat-label">想いを次世代へ<br>つなぐ使命</span>
+
+          <!-- 右：消火器 -->
+          <div class="origin-tool">
+            <div class="origin-tool-icon">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="24" y="22" width="16" height="30" rx="8"/>
+                <path d="M32 22v-8" stroke-linecap="round"/>
+                <path d="M28 14h8" stroke-linecap="round"/>
+                <path d="M40 30c5 0 10-4 10-8" stroke-linecap="round"/>
+                <path d="M30 34h4" stroke-linecap="round"/>
+                <path d="M32 52v4M28 56h8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span>消火器</span>
           </div>
+
         </div>
+
+        <!-- 消防ホース -->
+        <div class="origin-hose reveal-up delay-3" aria-hidden="false">
+          <div class="origin-hose-icon">
+            <svg viewBox="0 0 120 48" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M4 36 C4 36 20 36 28 28 C36 20 36 8 50 8 C64 8 64 20 72 28 C80 36 96 36 96 36"
+                stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="96" y="28" width="20" height="16" rx="4" stroke-linejoin="round"/>
+              <path d="M116 32 L122 28 M116 38 L122 42 M116 36 L124 36" stroke-linecap="round"/>
+              <rect x="0" y="30" width="8" height="12" rx="2"/>
+            </svg>
+          </div>
+          <span class="origin-hose-label">消防ホース</span>
+        </div>
+
       </div>
     </div>
   </section>
@@ -371,16 +449,16 @@
         </div>
 
         <!-- Service 5 -->
-        <div class="service-card reveal-up delay-2">
+        <div class="service-card service-card--fire reveal-up delay-2">
           <div class="service-number">05</div>
           <div class="service-icon-wrap">
-            <svg class="service-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
-              <path d="M32 8L8 22v4h48v-4L32 8z" stroke-linejoin="round"/>
-              <rect x="14" y="26" width="8" height="20"/>
-              <rect x="28" y="26" width="8" height="20"/>
-              <rect x="42" y="26" width="8" height="20"/>
-              <path d="M8 46h48" stroke-linecap="round"/>
-              <path d="M32 8v4M24 14l-4-4M40 14l4-4" stroke-linecap="round"/>
+            <svg class="service-icon service-icon--fire" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
+              <!-- 炎シルエット -->
+              <path d="M32 58C32 58 12 46 12 30C12 18 20 10 24 4C26 12 28 16 28 16C28 16 30 8 30 2C36 10 42 18 44 28C46 34 44 42 40 48C42 44 44 38 42 32C48 38 50 46 50 52C50 58 32 58 32 58Z"
+                stroke-linejoin="round" stroke-linecap="round"/>
+              <!-- 内炎 -->
+              <path d="M32 52C32 52 22 44 22 34C22 26 26 20 28 14C29 20 31 24 31 24C31 24 33 18 33 12C37 18 40 24 41 32C42 37 40 44 37 48C38 44 40 40 39 34C42 40 43 46 43 50C43 56 32 52 32 52Z"
+                stroke-linejoin="round" stroke-linecap="round" opacity="0.6"/>
             </svg>
           </div>
           <h3 class="service-title">防災コンサルティング</h3>
