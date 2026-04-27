@@ -24,8 +24,8 @@ function initQuill() {
     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
     // インデント
     [{ 'indent': '-1'}, { 'indent': '+1' }],
-    // リンク・画像
-    ['link', 'image'],
+    // リンク
+    ['link'],
     // 引用・コード
     ['blockquote', 'code-block'],
     // クリア
