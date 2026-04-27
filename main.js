@@ -290,3 +290,42 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   }, { threshold: 0.1 });
   newCards.forEach(el => observer.observe(el));
 })();
+
+/* ──────────────────────────────────────────
+   PRIVACY POLICY MODAL
+────────────────────────────────────────── */
+(function () {
+  const modal = document.getElementById('privacy-modal');
+  if (!modal) return;
+
+  function openModal() {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('pm-open');
+  }
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('pm-open');
+  }
+
+  // フォーム内・フッターの「プライバシーポリシー」リンクを全部インターセプト
+  document.querySelectorAll('a[href$="privacy.html"]').forEach(a => {
+    a.addEventListener('click', e => {
+      // Ctrl/Cmd+クリックや中クリックは通常の遷移を許可
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  // 閉じるボタン・背景クリック
+  modal.querySelectorAll('[data-privacy-close]').forEach(el => {
+    el.addEventListener('click', closeModal);
+  });
+
+  // ESC キーで閉じる
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+})();
