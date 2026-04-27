@@ -246,23 +246,12 @@ function showEditView(id) {
       ? post.body
       : _markdownToHtml(post.body || '');
 
-    if (post.coverImage) {
-      const img = document.getElementById('cover-preview-img');
-      img.src = post.coverImage;
-      img.style.display = 'block';
-      document.getElementById('cover-placeholder').style.display = 'none';
-      document.getElementById('btn-cover-clear').style.display = 'flex';
-    }
   }
 }
 
 function resetForm() {
   document.getElementById('post-form').reset();
   document.getElementById('edit-id').value = '';
-  document.getElementById('cover-preview-img').style.display = 'none';
-  document.getElementById('cover-preview-img').src = '';
-  document.getElementById('cover-placeholder').style.display = 'flex';
-  document.getElementById('btn-cover-clear').style.display = 'none';
   // Quill をクリア
   if (quill) {
     quill.setContents([]);
@@ -282,14 +271,12 @@ function getFormData(status) {
 
   const tagsRaw = document.getElementById('f-tags').value;
   const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
-  const coverImg = document.getElementById('cover-preview-img');
   return {
     title:      document.getElementById('f-title').value.trim(),
     excerpt:    document.getElementById('f-excerpt').value.trim(),
     body:       document.getElementById('f-body').value,
     category:   document.getElementById('f-category').value,
     tags,
-    coverImage: (coverImg.style.display !== 'none') ? coverImg.src : '',
     status:     status || document.getElementById('f-status').value,
   };
 }
@@ -312,42 +299,6 @@ function savePost(statusOverride) {
     showToast('記事を作成しました');
   }
   showListView();
-}
-
-/* ── Cover image ── */
-function bindCoverUpload() {
-  const area     = document.getElementById('cover-upload-area');
-  const fileIn   = document.getElementById('f-cover');
-  const img      = document.getElementById('cover-preview-img');
-  const placeholder = document.getElementById('cover-placeholder');
-  const clearBtn = document.getElementById('btn-cover-clear');
-
-  area.addEventListener('click', e => {
-    if (e.target === clearBtn || clearBtn.contains(e.target)) return;
-    fileIn.click();
-  });
-
-  fileIn.addEventListener('change', async () => {
-    const file = fileIn.files[0];
-    if (!file) return;
-    if (file.size > 3 * 1024 * 1024) {
-      showToast('画像は3MB以内にしてください', 'error');
-      return;
-    }
-    const b64 = await _fileToBase64(file);
-    img.src = b64;
-    img.style.display = 'block';
-    placeholder.style.display = 'none';
-    clearBtn.style.display = 'flex';
-  });
-
-  clearBtn.addEventListener('click', () => {
-    img.src = '';
-    img.style.display = 'none';
-    placeholder.style.display = 'flex';
-    clearBtn.style.display = 'none';
-    fileIn.value = '';
-  });
 }
 
 /* ══════════════════════════════════════════
@@ -404,7 +355,6 @@ function bindEvents() {
 
   document.getElementById('btn-save-draft').addEventListener('click', () => savePost('draft'));
 
-  bindCoverUpload();
 
   document.getElementById('btn-delete-cancel').addEventListener('click', closeDeleteModal);
   document.getElementById('btn-delete-confirm').addEventListener('click', () => {
