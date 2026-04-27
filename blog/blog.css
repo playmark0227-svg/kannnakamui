@@ -103,7 +103,8 @@ button { cursor: pointer; font-family: inherit; }
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
 }
 
 .header-nav a {
@@ -112,6 +113,7 @@ button { cursor: pointer; font-family: inherit; }
   letter-spacing: 0.05em;
   transition: color 0.2s;
   position: relative;
+  white-space: nowrap;
 }
 
 .header-nav a::after {
@@ -227,6 +229,8 @@ button { cursor: pointer; font-family: inherit; }
   background: var(--white);
   transition: all 0.22s;
   font-family: var(--font-sans);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .filter-pill:hover {
@@ -799,8 +803,27 @@ button { cursor: pointer; font-family: inherit; }
 /* ══════════════════════════════════════════════════
    レスポンシブ
 ══════════════════════════════════════════════════ */
+/* タブレット〜中サイズ：ナビが詰まりすぎる前に補助項目を畳む */
+@media (max-width: 1080px) {
+  .header-nav { gap: 1.1rem; }
+  .header-nav a { font-size: 0.78rem; }
+}
+
+@media (max-width: 980px) {
+  .header-inner { padding: 0 1.5rem; }
+  .header-nav a[href*="#flow"],
+  .header-nav a[href*="#company"] { display: none; }
+}
+
 @media (max-width: 900px) {
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .header-nav a[href*="#about"],
+  .header-nav a[href*="#message"] { display: none; }
+}
+
+@media (max-width: 760px) {
+  .header-nav { gap: 0.85rem; }
+  .header-nav a:not(.nav-cta):not(.current) { display: none; }
 }
 
 @media (max-width: 600px) {
@@ -811,4 +834,8 @@ button { cursor: pointer; font-family: inherit; }
   .blog-footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
   .footer-nav { flex-wrap: wrap; justify-content: center; gap: 1rem; }
   .post-cta { padding: 2rem 1.25rem; }
+  .blog-filter { gap: 0.4rem; padding-bottom: 1.5rem; margin-bottom: 1.75rem; }
+  .filter-pill { padding: 0.4rem 0.85rem; font-size: 0.72rem; }
+  .page-hero-title { font-size: 1.7rem; }
+  .blog-container { padding: 0 1.25rem; }
 }
